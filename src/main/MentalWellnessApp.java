@@ -7,9 +7,9 @@ public class MentalWellnessApp {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
+        int choice = 0;
 
-        while (true) {
-
+        do {
             System.out.println("\n=================================");
             System.out.println(" MENTAL WELLNESS JOURNAL SYSTEM");
             System.out.println("=================================");
@@ -23,43 +23,51 @@ public class MentalWellnessApp {
 
             System.out.print("\nEnter Choice: ");
 
-            int choice = sc.nextInt();
-            sc.nextLine();
+            if (!sc.hasNextInt()) {
+                System.out.println("Invalid input! Enter a number.");
+                sc.nextLine();
+                continue;
+            }
+
+            choice = sc.nextInt();
+            sc.nextLine(); // consume newline
 
             switch (choice) {
 
-            case 1:
-                TestRegister.main(null);
-                break;
+                case 1:
+                    RegisterTest.run(sc);
+                    break;
 
-            case 2:
-                LoginTest.main(null);
-                break;
+                case 2:
+                    LoginTest.run(sc);
+                    break;
 
-            case 3:
-                JournalTest.main(null);
-                break;
+                case 3:
+                    JournalTest.run(sc);
+                    break;
 
-            case 4:
-                MoodTest.main(null);
-                break;
+                case 4:
+                    MoodTest.run(sc);
+                    break;
 
-            case 5:
-                HabitTest.main(null);
-                break;
+                case 5:
+                    HabitTest.run(sc);
+                    break;
 
-            case 6:
-                AnalyticsTest.main(null);
-                break;
+                case 6:
+                    AnalyticsTest.run();
+                    break;
 
-            case 7:
-                System.out.println("Thank You...");
-                System.exit(0);
-                break;
+                case 7:
+                    System.out.println("Exiting...");
+                    break;
 
-            default:
-                System.out.println("Invalid Choice");
+                default:
+                    System.out.println("Invalid Choice");
             }
-        }
+
+        } while (choice != 7);
+
+        sc.close();
     }
 }

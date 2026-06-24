@@ -25,8 +25,7 @@ public class UserHabitDAO {
 
             pst.setInt(1, userId);
             pst.setInt(2, habitId);
-            pst.setString(3, date);
-            pst.setString(4, value);
+            pst.setDate(3, java.sql.Date.valueOf(date));            pst.setString(4, value);
 
             return pst.executeUpdate() > 0;
 

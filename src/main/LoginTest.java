@@ -1,16 +1,13 @@
 package main;
 
 import java.util.Scanner;
-
 import dao.UserDAO;
 
 public class LoginTest {
 
-    public static void main(String[] args) {
+    public static void run(Scanner sc) {
 
-        Scanner sc = new Scanner(System.in);
-
-        System.out.println("===== LOGIN =====");
+        System.out.println("\n===== LOGIN =====");
 
         System.out.print("Username: ");
         String username = sc.nextLine();
@@ -22,16 +19,11 @@ public class LoginTest {
 
         int userId = dao.loginUser(username, password);
 
-        if(userId > 0) {
-
+        if (userId > 0) {
             System.out.println("Login Successful");
             System.out.println("User ID = " + userId);
-
         } else {
-
             System.out.println("Invalid Username or Password");
         }
-
-      
     }
 }

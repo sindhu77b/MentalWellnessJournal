@@ -1,47 +1,61 @@
-package main;
+package model;
 
-import java.util.Scanner;
+public class Mood {
 
-import dao.JournalDAO;
+    private int moodId;
+    private int userId;
+    private String moodType;
+    private String moodDate;
+    private String note;
 
-public class JournalTest {
+    public Mood() {
+    }
 
-    public static void main(String[] args) {
+    public Mood(int moodId, int userId, String moodType, String moodDate, String note) {
+        this.moodId = moodId;
+        this.userId = userId;
+        this.moodType = moodType;
+        this.moodDate = moodDate;
+        this.note = note;
+    }
 
-        Scanner sc = new Scanner(System.in);
+    public int getMoodId() {
+        return moodId;
+    }
 
-        JournalDAO dao = new JournalDAO();
+    public void setMoodId(int moodId) {
+        this.moodId = moodId;
+    }
 
-        int userId = 1;
+    public int getUserId() {
+        return userId;
+    }
 
-        System.out.print("Title: ");
-        String title = sc.nextLine();
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
-        System.out.print("Content: ");
-        String content = sc.nextLine();
+    public String getMoodType() {
+        return moodType;
+    }
 
-        System.out.print("Date (YYYY-MM-DD): ");
-        String date = sc.nextLine();
+    public void setMoodType(String moodType) {
+        this.moodType = moodType;
+    }
 
-        boolean result =
-                dao.addJournal(
-                        userId,
-                        title,
-                        content,
-                        date
-                );
+    public String getMoodDate() {
+        return moodDate;
+    }
 
-        if(result) {
+    public void setMoodDate(String moodDate) {
+        this.moodDate = moodDate;
+    }
 
-            System.out.println("Journal Added");
+    public String getNote() {
+        return note;
+    }
 
-        } else {
-
-            System.out.println("Failed");
-        }
-
-        dao.viewJournals(userId);
-
-        sc.close();
+    public void setNote(String note) {
+        this.note = note;
     }
 }
